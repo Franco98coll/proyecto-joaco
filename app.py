@@ -17,22 +17,20 @@ with open(ruta_json, 'w', encoding='utf-8') as json_file:
 
 print(f"Archivo JSON guardado en: {ruta_json}")
 
-# ruta_html_indices = 'indices.html'
-# with open(ruta_html_indices, 'w', encoding='utf-8') as html_file:
-#     html_file.write('<!DOCTYPE html>\n')
-#     html_file.write('<html>\n')
-#     html_file.write('<head>\n')
-#     html_file.write('<title>Índices del Excel</title>\n')
-#     html_file.write('</head>\n')
-#     html_file.write('<body>\n')
-#     html_file.write('<h1>Índices del Excel con Nombres</h1>\n')
-#     html_file.write('<ul>\n')
-#     for indice, datos in datos_dict.items():
-#         nombre = datos.get('nombre', '')  # Cambia 'nombre' por la columna que contiene los nombres
-#         primera_columna = datos_df.loc[indice, datos_df.columns[0]]
-#         html_file.write(f'<li>{indice}: {datos_df.columns[0]}: {primera_columna}<</li>\n')
-#     html_file.write('</ul>\n')
-#     html_file.write('</body>\n')
-#     html_file.write('</html>\n')
-
-# print(f"Archivo HTML de índices con nombres guardado en: {ruta_html_indices}")
+ruta_html_indices = 'indices.html'
+with open(ruta_html_indices, 'w', encoding='utf-8') as html_file:
+    # Escribe el encabezado HTML
+    html_file.write('<!DOCTYPE html>\n')
+    html_file.write('<html>\n')
+    html_file.write('<head>\n')
+    html_file.write('<title>Índices del Excel</title>\n')
+    html_file.write('</head>\n')
+    html_file.write('<body>\n')
+    html_file.write('<h1>Índices del Excel con Nombres</h1>\n')
+    html_file.write('<ul>\n')
+    # Itera sobre los elementos del diccionario
+    for indice, datos in datos_dict.items():
+        # Obtiene el nombre del elemento actual
+        nombre = datos.get('nombre', '')  # Cambia 'nombre' por la columna que contiene los nombres
+        # Obtiene el valor de la primera columna del DataFrame para el elemento actual
+        primera_columna = datos_df.loc[indice, datos_df.columns[0]]
